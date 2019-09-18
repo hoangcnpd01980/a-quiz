@@ -24,6 +24,7 @@ AllCops:
     - 'bin/**/*'
     - 'config/environments/*.rb'
     - 'config/routes.rb'
+    - 'config/initializers/*.rb'
 
 Style/Documentation:
   Enabled: false
