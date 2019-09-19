@@ -92,3 +92,31 @@ footer {
 .categories-row {
   padding-top: 15px;
 }
+
+.toast-top-right{
+  top: 60px !important;
+}
+
+.hub {
+  display: block;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 2vw;
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translate(-50%, -50%);
+  text-decoration: none !important;
+}
+
+.hub span:nth-child(1) {
+  color: #fff;
+}
+
+.hub span:nth-child(2) {
+  background: #FF9900;
+  color: #000000;
+  border-radius: 1vw;
+  display: inline-block;
+  margin-left: 3px;
+}

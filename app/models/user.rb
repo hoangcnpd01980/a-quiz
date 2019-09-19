@@ -6,5 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: [:member, :admin]
+  has_many :categories
+  has_many :exams
+
+  enum role: %i[member admin]
 end

@@ -7,7 +7,8 @@ en:
       see: "SEE TEST"
   layouts:
     header:
-      logo: "LOGO"
+      a: "A"
+      quiz: "Quiz"
       home: "Home"
       Link: "Link"
       logout: "Logout"
