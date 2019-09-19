@@ -1,0 +1,18 @@
+- if flash.present?
+  #flash
+    - flash.each do |f, message|
+      - case f
+      - when "notice"
+        - type = "info"
+      - when "danger"
+        - type = "error"
+      - when "alert"
+        - type = "warning"
+      - when "warning"
+        - type = "warning"
+      - when "timedout"
+        -type = ""
+      - else
+        - type = 'success'
+      javascript:
+        toastr["#{type}"]("#{flash[f]}")

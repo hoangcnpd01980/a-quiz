@@ -10,5 +10,7 @@ en:
       logo: "LOGO"
       home: "Home"
       Link: "Link"
+      logout: "Logout"
+      login: "Login"
     footer:
       author: "A-Quiz"
