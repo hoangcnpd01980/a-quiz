@@ -7,4 +7,18 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError do
     render file: "#{Rails.root}/public/404", layout: false, status: :not_found
   end
+  
+  def after_sign_in_path_for(resource)
+    link = resource.admin? ? admin_dashboard_path : root_path
+    stored_location_for(resource) || link
+  end
+
+  private
+
+  def limit_access
+    return if user_signed_in? && current_user.admin?
+
+    flash[:danger] = t "application.danger"
+    redirect_to root_path
+  end
 end
