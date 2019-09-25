@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 2019_09_26_064446) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "crawler_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "crawler_question_id"
+    t.text "content"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crawler_question_id"], name: "index_crawler_answers_on_crawler_question_id"
+  end
+
+  create_table "crawler_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "question_content"
+    t.integer "level", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "exams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
