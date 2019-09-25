@@ -1,0 +1,8 @@
+tr.question
+  td = question.question_content
+  td = question.category.name
+  td = question.level.titleize
+  td.answer
+    - question.answers.each do |answer|
+      div style=("color: #{answer.status == true ? 'green' : 'red'}")
+        = answer.content

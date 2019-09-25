@@ -1,8 +1,3 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
 body {
   background-color: #f6f6f6;
 }
@@ -119,4 +114,17 @@ footer {
   border-radius: 1vw;
   display: inline-block;
   margin-left: 3px;
+}
+
+.form-control {
+  padding-right: 20px !important;
+}
+
+#checkbox-answer{
+  float: right;
+  margin: -26px 5px;
+}
+
+#error_explanation {
+  color: red;
 }

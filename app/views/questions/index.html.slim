@@ -1,0 +1,15 @@
+- provide(:title, t(".question"))
+h1 Here
+= link_to t(".add"), new_question_path, remote: true, class: "btn btn-primary fa fa-plus fa-xs"
+table.table.table-striped.table-hover
+  thead
+    tr
+      th scope="col" = t(".question")
+      th scope="col" = t(".category")
+      th scope="col" = t(".level")
+      th scope="col" = t(".answer")
+  tbody#question
+    = render @questions
+#paginate
+  = paginate @questions, theme: "twitter-bootstrap-4"
+#question-modal.modal.fade

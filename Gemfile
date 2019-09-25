@@ -20,12 +20,18 @@ gem "bootstrap"
 gem "jquery-rails"
 gem "font-awesome-sass", "~> 4.2.0"
 gem "toastr-rails"
+gem "faker"
+gem "kaminari"
+gem "bootstrap4-kaminari-views"
+gem "cocoon"
+gem "jquery-ui-rails"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
+  gem "pry", "~> 0.12.2"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rubocop", "~> 0.74.0", require: false
   gem "spring"

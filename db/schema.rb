@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_061330) do
+ActiveRecord::Schema.define(version: 2019_09_24_035024) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id"
     t.text "content"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -43,12 +43,13 @@ ActiveRecord::Schema.define(version: 2019_09_19_061330) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "category_id"
-    t.string "name"
     t.integer "level"
-    t.boolean "multi"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "question_content"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_questions_on_category_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,4 +77,5 @@ ActiveRecord::Schema.define(version: 2019_09_19_061330) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "questions", "users"
 end

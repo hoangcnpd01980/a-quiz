@@ -1,0 +1,11 @@
+- if @question.errors.present?
+  |
+    $("#message_errors").html("#{j(render 'shared/error_messages', object: @question)}");
+    toastr.error("#{flash[:danger]}");
+    $(".modal").animate({scrollTop : 0},500);
+- else
+  |
+    $("#question-modal").modal("hide");
+    $("#question").html("#{j(render @questions)}");
+    $("#paginate").html("#{j(paginate @questions, theme: 'twitter-bootstrap-4')}")
+    toastr.success("#{flash[:success]}");
