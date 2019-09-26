@@ -5,12 +5,15 @@ en:
       more: "More"
       level: "Level: Medium"
       see: "SEE TEST"
+      home: "Home"
+  application:
+    danger: "Access denied!"
   layouts:
     header:
       a: "A"
       quiz: "Quiz"
       home: "Home"
-      Link: "Link"
+      link: "Link"
       logout: "Logout"
       login: "Login"
       question: "Question"
@@ -48,3 +51,9 @@ en:
       less_than: "Question cannot have less than 2 answers"
       not_same: "Answer to a question is not the same"
       exist: "Question and answer exist!"
+  admin:
+    dashboard:
+      index:
+        title: "Dashboard"
+        desc: "Admin dash board"
+  a-quiz: "A-quiz"

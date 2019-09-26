@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_035024) do
+ActiveRecord::Schema.define(version: 2019_09_26_064446) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id"
@@ -55,10 +55,9 @@ ActiveRecord::Schema.define(version: 2019_09_24_035024) do
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "exam_id"
     t.bigint "question_id"
-    t.bigint "answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_results_on_answer_id"
+    t.string "answer_choice"
     t.index ["exam_id"], name: "index_results_on_exam_id"
     t.index ["question_id"], name: "index_results_on_question_id"
   end
