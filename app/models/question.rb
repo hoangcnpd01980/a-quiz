@@ -12,6 +12,10 @@ class Question < ApplicationRecord
   validate :valid_answer, :valid_correct, :count_answer, :question_exist
   enum level: %i[easy hard]
 
+  def self.getquestion(level, category_id, number)
+    includes(:category).where(level: level, category_id: category_id).sample(number)
+  end
+
   private
 
   def valid_correct
