@@ -1,0 +1,28 @@
+.modal-dialog
+  .modal-content
+    = form_for question, remote: true do |f|
+      .modal-body
+        h2.text-center = t ".question"
+        #message_errors
+        hr
+        .form-group
+          = f.label :category, class: "col-form-label"
+          = f.select :category_id, options_for_select(select_category,
+            selected: f.object.category_id), {include_blank: t(".choose_category")},
+            {class: "form-control", required: true}
+        .form-group
+          = f.label :level, class: "col-form-label"
+          = f.select :level, options_for_select(select_level,
+            selected: f.object.level), {include_blank: t(".choose_level")},
+            {class: "form-control", required: true}
+        .form-group
+          = f.label t(".question"), class: "col-form-label"
+          = f.text_area :question_content, class: "form-control"
+        #sortable
+          = f.label t(".answer")
+          = f.fields_for(:answers) do |answer|
+            = render "answer_fields", f: answer
+        .modal-footer
+          = link_to_add_association t(".add_answer"), f, :answers, class: "fa fa-plus"
+          = f.submit t(".submit"), class: "btn btn-primary"
+          = link_to t(".cancel"), "#", class: "btn btn-danger", data: {dismiss: "modal"}

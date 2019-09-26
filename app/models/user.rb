@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :exams
+  has_many :questions, dependent: :destroy
 
   enum role: %i[member admin]
 end

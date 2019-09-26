@@ -13,5 +13,38 @@ en:
       Link: "Link"
       logout: "Logout"
       login: "Login"
+      question: "Question"
     footer:
       author: "A-Quiz"
+  questions:
+    form:
+      question: "Question"
+      choose_category: "Choose category"
+      choose_level: "Choose level"
+      answer: "Answer"
+      add_answer: "Add answer"
+      submit: "Submit"
+      cancel: "Cancel"
+    index:
+      question: "Question"
+      category: "Category"
+      answer: "Answer"
+      level: "Level"
+      add: "Add question"
+  shared:
+    error_messages:
+      count_error: "The form contains %{count}."
+  messages:
+    success:
+      questions:
+        create: "Created!"
+    failed:
+      questions:
+        create: "Failed"
+  model:
+    question:
+      no_correct: "Question has no correct answer"
+      no_wrong: "Question has no wrong answer"
+      less_than: "Question cannot have less than 2 answers"
+      not_same: "Answer to a question is not the same"
+      exist: "Question and answer exist!"
