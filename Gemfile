@@ -25,6 +25,9 @@ gem "kaminari"
 gem "bootstrap4-kaminari-views"
 gem "cocoon"
 gem "jquery-ui-rails"
+gem "capybara"
+gem "webdrivers"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
@@ -37,12 +40,6 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
-end
-
-group :test do
-  gem "capybara", ">= 2.15"
-  gem "chromedriver-helper"
-  gem "selenium-webdriver"
 end
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
