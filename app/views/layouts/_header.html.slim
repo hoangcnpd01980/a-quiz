@@ -12,8 +12,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-dark
         li.nav-item.active
           = link_to t(".question"), questions_path, class: "nav-link"
       li.nav-item
-        = link_to t(".link"), "#", class: "nav-link"
-      li.nav-item
         - if user_signed_in?
           = link_to t(".logout"), destroy_user_session_path, method: :delete, class: "nav-link"
         - else

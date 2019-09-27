@@ -13,7 +13,6 @@ en:
       a: "A"
       quiz: "Quiz"
       home: "Home"
-      link: "Link"
       logout: "Logout"
       login: "Login"
       question: "Question"
@@ -22,6 +21,7 @@ en:
       author: "A-Quiz"
     sidebar:
       crawler: "Crawler"
+      categories: "Categories"
   questions:
     form:
       question: "Question"
@@ -76,4 +76,25 @@ en:
         success: "Question deleted!"
       create:
         success: "Question imported!"
+    categories:
+      index:
+        new: "NEW CATEGORY"
+        title: "Categories"
+        category: "Category"
+        questions: "Questions"
+        action: "Action"
+      show:
+        question: "Question"
+        level: "Level"
+        action: "Action"
+      create:
+        success: "Category was created!"
+      destroy:
+        success: "Category was destroyed!"
+        warning: "Category can't destroy. It has data!"
+      category:
+        confirm: "Are you sure you want to delete?"
+      form:
+        save: "Save"
+        placeholder: "Name of category..."
   a-quiz: "A-quiz"

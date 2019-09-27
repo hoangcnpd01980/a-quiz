@@ -1,0 +1,7 @@
+= form_for [:admin, category], remote: true do |f|
+  .form-group
+    = f.text_field :name, class: "form-control", placeholder: t(".placeholder")
+  .form-group
+    = f.submit t(".save"), class: "form-control btn btn-outline-success"
+  .form-group#message_errors_create
+  div id="message_errors_update#{category.id}"

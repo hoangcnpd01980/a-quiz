@@ -1,0 +1,18 @@
+- provide(:title, t(".title"))
+
+button.btn.btn-primary.mt-2.mb-2[data-toggle="collapse" data-target="#new-category"]
+  = t ".new"
+
+#new-category.collapse.mt-2.mb-2
+  = render "form", category: @category
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th scope="col" = t ".category"
+      th.action scope="col" = t ".questions"
+      th.action scope="col" = t ".action"
+  tbody
+    = render @categories
+#paginate
+  = paginate @categories, theme: "twitter-bootstrap-4"

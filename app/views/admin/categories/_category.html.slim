@@ -1,0 +1,14 @@
+tr id="category#{category.id}"
+  td
+    = category.name
+    .collapse id="edit-category#{category.id}"
+      = render "form", category: category
+  td
+    = link_to admin_category_path(category), class: "btn btn-outline-info"
+      = category.questions.size
+  td
+    button.btn.btn-success[data-toggle="collapse" data-target="#edit-category#{category.id}"]
+      em.fa.fa-pencil
+    = link_to admin_category_path(category), method: :delete,
+      class: "btn btn-danger", data: { confirm: t(".confirm") }
+        em.fa.fa-trash

@@ -1,0 +1,10 @@
+- provide(:title, @category.name)
+
+table.table.table-striped.table-hover
+  thead
+    tr.text-center
+      th scope="col" = t ".question"
+      th scope="col" = t ".level"
+      th scope="col" = t ".action"
+  tbody
+    = render @questions
