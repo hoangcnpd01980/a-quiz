@@ -7,7 +7,10 @@ module Api
       before_action :authenticate_user!
 
       def index
-        @exams = current_user.exams.map { |exam| { id: exam.id, difficulity: exam.difficulity, questions_count: exam.results.count, category_id: exam.category_id} }
+        @exams = current_user.exams.map do |exam|
+          { id: exam.id, difficulity: exam.difficulity,
+            questions_count: exam.results.count, category_id: exam.category_id }
+        end
         render json: @exams
       end
 

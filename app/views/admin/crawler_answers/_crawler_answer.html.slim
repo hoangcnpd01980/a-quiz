@@ -1,6 +1,14 @@
-li.list-group-item.d-flex.justify-content-between.align-items-center
-  = crawler_answer.content
+li.list-group-item.d-flex.justify-content-between.align-items-center id="crawler_answer#{crawler_answer.id}"
+  div
+    = crawler_answer.content
+    .collapse id="edit-answer#{crawler_answer.id}"
+      = render "admin/crawler_answers/form", crawler_answer: crawler_answer,
+        crawler_question: crawler_answer.crawler_question
+    .small
+      = link_to t(".delete"), admin_crawler_answer_path(crawler_answer),
+        method: :delete, remote: true, data: { confirm: t(".confirm") }
+      span.text-link[data-toggle="collapse" data-target="#edit-answer#{crawler_answer.id}"]
+        = t(".edit")
   span.badge.badge-success.badge-pill
     - if crawler_answer.status
       em.fa.fa-check
-

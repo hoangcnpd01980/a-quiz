@@ -1,12 +1,16 @@
-tr
+tr id="crawler_question#{crawler_question.id}"
   td
     = crawler_question.question_content
+    .collapse id="edit-question#{crawler_question.id}"
+      = render "form", crawler_question: crawler_question
   td.text-center
     div class="btn btn-outline-#{crawler_question.easy? ? 'secondary' : 'primary'}"
       = crawler_question.level.titleize
   td.text-center
     button.btn.btn-info[data-toggle="collapse" data-target="#info#{crawler_question.id}"]
       em.fa.fa-eye
+    button.btn.btn-warning[data-toggle="collapse" data-target="#edit-question#{crawler_question.id}"]
+      em.fa.fa-pencil
     = link_to admin_crawler_question_path(crawler_question), method: :delete,
       class: "btn btn-danger", data: { confirm: t(".confirm") }
         em.fa.fa-trash
@@ -16,5 +20,10 @@ tr
   td[colspan="3"]
     ul id="info#{crawler_question.id}" class="collapse list-group list-group-flush"
       = render crawler_question.crawler_answers
+      li.list-group-item id="add_answer#{crawler_question.id}"
+        button.btn.btn-primary[data-toggle="collapse" data-target="#new_answer#{crawler_question.id}"]
+          em.fa.fa-plus
+        .collapse.col-md-6.mt-2 id="new_answer#{crawler_question.id}"
+          = render "admin/crawler_answers/form", crawler_answer: CrawlerAnswer.new, crawler_question: crawler_question
     div id="import#{crawler_question.id}" class="collapse form-import"
       = render "form_import", crawler_question: crawler_question
