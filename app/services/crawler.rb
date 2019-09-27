@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 require "capybara/dsl"
-require "webdrivers"
+require "webdrivers/chromedriver"
 
-Capybara.current_driver = :selenium_headless
-Capybara.default_max_wait_time = 10
-Capybara.app_host = "https://www.w3schools.com"
+Capybara.current_driver = :selenium_chrome_headless
+Capybara.default_max_wait_time = 120
+Capybara.app_host = "https://www.w3schools.com/quiztest"
 
 class Crawler
   include Capybara::DSL
 
   def categories
-    visit "/quiztest"
+    visit "/"
     all(".quizcontainer").map { |category| category.find(".quizbody a")["href"] }
   end
 
@@ -29,6 +29,8 @@ class Crawler
     answers = []
     result_window = window_opened_by { find("#quizcontainer form input[type='submit']").click }
     within_window result_window do
+      return answers unless has_css? ".radiocontainer.correct"
+
       all(".radiocontainer.correct").each do |tag|
         answer_correct = tag.text
         answer_correct.slice!("Correct answer")
@@ -39,7 +41,7 @@ class Crawler
   end
 
   def question_exits?(question)
-    return true if CrawlerQuestion.find_by(question_content: question[:content]).present?
+    return true if CrawlerQuestion.with_deleted.find_by(question_content: question[:content]).present?
 
     Question.find_by(question_content: question[:content]).present?
   end
@@ -68,7 +70,7 @@ class Crawler
       visit category
       questions = questions_all
       answers_correct = answers_correct_all
-      insert_db(questions, answers_correct)
+      insert_db(questions, answers_correct) if answers_correct.any?
     end
   end
 end

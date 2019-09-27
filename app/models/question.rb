@@ -19,6 +19,12 @@ class Question < ApplicationRecord
     questions.shuffle
   end
 
+  def convert_attributes(crawler_question)
+    self.question_content = crawler_question.question_content
+    self.level = crawler_question.level
+    crawler_question.crawler_answers.each { |answer| answers.new content: answer.content, status: answer.status }
+  end
+
   private
 
   def valid_correct

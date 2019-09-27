@@ -3,8 +3,9 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  namespace :admin do 
+  namespace :admin do
     get "/dashboard", to: "dashboard#index"
+    resources :crawler_questions, only: %i(index create destroy)
   end
 
   namespace :api do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
       resources :exams, only: [:index, :create, :destroy, :show]
     end
   end
-  
+
   devise_for :users
   resources :questions
   resources :exams

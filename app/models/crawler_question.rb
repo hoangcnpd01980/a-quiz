@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class CrawlerQuestion < ApplicationRecord
-  has_many :crawler_answers
+  acts_as_paranoid
+
+  has_many :crawler_answers, dependent: :destroy
 
   enum level: %i[easy hard]
 end

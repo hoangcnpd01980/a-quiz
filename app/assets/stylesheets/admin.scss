@@ -1,0 +1,16 @@
+#nav-admin {
+  background-color: black !important;
+  .nav-link {
+    font-size: 90%;
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid white;
+    &:hover {
+      background-color: silver;
+      color: black !important;
+    }
+  }
+}
+.form-import {
+  margin-top: 15px;
+}
