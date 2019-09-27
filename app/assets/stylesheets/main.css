@@ -128,3 +128,89 @@ footer {
 #error_explanation {
   color: red;
 }
+
+.exam {
+  background-color: #f8bd32;
+  margin: 10px 20px;
+  height: 300px;
+}
+
+.item {
+  padding-top: 45px;
+}
+
+.title {
+  background: white;
+  position: relative;
+  left: 10px;
+  border-radius: 2%;
+  margin: 10px 0px;
+}
+
+.info-card {
+  display: inline-block;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #4d5755;
+  border: 2px solid #4d5775;
+  text-align: center;
+  width: 120px;
+}
+
+.rating {
+  display: inline-block;
+  max-width: 195px;
+  margin: 20px;
+}
+
+.fa {
+  color: #f8bd32;
+  font-size: 40px !important;
+}
+
+.info-card p {
+  color: white;
+}
+
+.count {
+  background-color: white;
+}
+
+.count p {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.difficulity p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn-click {
+  background-color: black;
+  color: #f8bd32;
+  font-weight: bold;
+}
+
+.btn-click:hover {
+  color: #fff;
+}
+
+.name-title, .name-exam {
+  margin: 35px 10px;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.name-title p {
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: cursive;
+}
+
+.name-exam p {
+  font-family: cursive;
+  text-align: justify;
+}
