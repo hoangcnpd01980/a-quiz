@@ -70,8 +70,19 @@ en:
       index:
         title: "Dashboard"
         desc: "Admin dash board"
+    crawlers:
+      destroy:
+        success: "Questions deleted!"
+        danger: "There was an error processing"
     crawler_questions:
       index:
+        question: "Question"
+        select: "Select multiple"
+        all: "All"
+        cancel: "Cancel"
+        crawler: " Crawler W3School"
+        destroy: "Destroy"
+        import: "Import"
         title: "Crawler"
         action: "Action"
       form_import:

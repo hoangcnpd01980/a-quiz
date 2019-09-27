@@ -1,5 +1,6 @@
 tr id="crawler_question#{crawler_question.id}"
   td
+    input[type="checkbox" class="d-none mr-1" name="questions[]" value="#{crawler_question.id}"]
     = crawler_question.question_content
     .collapse id="edit-question#{crawler_question.id}"
       = render "form", crawler_question: crawler_question
