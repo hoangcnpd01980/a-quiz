@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :questions
   resources :exams
+  mount ActionCable.server => '/cable'
 end

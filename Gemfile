@@ -32,6 +32,7 @@ gem "paranoia"
 gem "webpacker"
 gem "react-rails"
 gem "activerecord-import"
+gem "redis"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

@@ -37,6 +37,10 @@ en:
       answer: "Answer"
       level: "Level"
       add: "Add question"
+      time: "Time"
+    question:
+      edit: "Edited "
+      create: "Created "
   shared:
     error_messages:
       count_error: "The form contains %{count}."

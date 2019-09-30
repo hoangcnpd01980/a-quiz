@@ -6,6 +6,4 @@
 - else
   |
     $("#question-modal").modal("hide");
-    $("#question").html("#{j(render @questions)}");
-    $("#paginate").html("#{j(paginate @questions, theme: 'twitter-bootstrap-4')}")
     toastr.success("#{flash[:success]}");
