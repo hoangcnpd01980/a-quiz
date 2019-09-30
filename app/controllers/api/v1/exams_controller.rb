@@ -3,30 +3,36 @@
 module Api
   module V1
     class ExamsController < ApplicationController
+      before_action :load_exam, only: %i[show destroy]
+      before_action :authenticate_user!
+
       def index
-        @exams = Exam.all.map { |exam| { id: exam.id, difficulity: exam.difficulity, questions_count: exam.results.count } }
+        @exams = current_user.exams.map { |exam| { id: exam.id, difficulity: exam.difficulity, questions_count: exam.results.count } }
         render json: @exams
       end
 
       def create
         @exam = current_user.exams.create(exam_params)
-        questions = list_question(@exam)
+        questions = Question.getquestion(@exam)
         values = questions.map { |question| { exam_id: @exam.id, question_id: question.id } }
         Result.import values
         render json: @exam.as_json.merge("questions_count" => questions.length)
       end
 
       def show
-        @exam = Exam.find(params[:id])
-        @exams = @exam.questions
-        render json: @exams
+        @questions = @exam.questions
+        render json: @questions
+      end
+
+      def destroy
+        @exam.destroy
+        render json: @exam
       end
 
       private
 
-      def list_question(exam)
-        difficulity = exam.master? ? 10 : 5
-        Question.getquestion(:hard, exam.category_id, difficulity) + Question.getquestion(:easy, exam.category_id, 20 - difficulity)
+      def load_exam
+        @exam = Exam.find(params[:id])
       end
 
       def exam_params

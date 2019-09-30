@@ -1,8 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { BrowserRouter as Router, Link } from "react-router-dom"
+import { toast } from "react-toastify"
 
 class AllExams extends React.Component {
+  handleDelete(id) {
+    var result = confirm("Are you sure?");
+    if (result) {
+      this.props.handleDelete(id);
+      toast.warn("Destroy exam successfully!!!")
+    }
+  }
   render () {
     var exams = this.props.exams.map((exam, index) => {
       return(
@@ -31,6 +39,7 @@ class AllExams extends React.Component {
             </div>
           </div>
           <div className="col-md-8">
+            <i className="fa fa-times-circle delete" onClick={this.handleDelete.bind(this, exam.id)}></i>
             <div className="name-title">
               <p>Full Stack .NET quiz medium level</p>
             </div>
@@ -38,7 +47,7 @@ class AllExams extends React.Component {
               <p>Take this .NET test especially designed for .NET developers new to .NET Core 2.0. Topics: Entity Framework Core, ASP.NET Core, .NET Core Command-Line Interface (CLI) Tools, Kestrel, API, etc.</p>
             </div>
             <div className="action text-center">
-              <a href={`/admin/exams/${exam.id}`}><button className="btn btn-click">TAKE THE TEST</button></a>
+              <a href={`/exams/${exam.id}`}><button className="btn btn-click">TAKE THE TEST</button></a>
             </div>
           </div>
         </div>

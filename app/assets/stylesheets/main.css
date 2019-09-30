@@ -163,7 +163,7 @@ footer {
   margin: 20px;
 }
 
-.fa {
+.fa-question, .fa-clock-o {
   color: #f8bd32;
   font-size: 40px !important;
 }
@@ -213,4 +213,11 @@ footer {
 .name-exam p {
   font-family: cursive;
   text-align: justify;
+}
+
+.delete {
+  float: right;
+  font-size: 25px !important;
+  margin: 5px -10px;
+  cursor: pointer;
 }

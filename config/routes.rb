@@ -5,15 +5,15 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     get "/dashboard", to: "dashboard#index"
-    resources :exams
   end
 
   namespace :api do
     namespace :v1 do
-      resources :exams
+      resources :exams, only: [:index, :create, :destroy, :show]
     end
   end
   
   devise_for :users
   resources :questions
+  resources :exams
 end
