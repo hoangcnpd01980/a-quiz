@@ -36,7 +36,7 @@ module Api
       end
 
       def exam_params
-        params.require(:exam).permit(:difficulity, :category_id)
+        params.require(:exam).permit(:user_id, :difficulity, :category_id)
       end
     end
   end
