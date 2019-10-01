@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { toast } from 'react-toastify';
 
 class NewExam extends React.Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class NewExam extends React.Component {
       }
     });
   }
+  showToast = () => {
+    toast.success("Create Exam Successfully!!!")
+  }
   render () {
     return (
       <div className="panel panel-default">
@@ -39,7 +43,7 @@ class NewExam extends React.Component {
             <option value="amateur">amateur</option>
           </select>
 
-          <button type="submit" className="btn btn-primary">Create</button>
+          <button type="submit" className="btn btn-primary" onClick={this.showToast}>Create</button>
         </form>
       </div>
     );

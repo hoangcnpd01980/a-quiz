@@ -12,8 +12,11 @@ class Question < ApplicationRecord
   validate :valid_answer, :valid_correct, :count_answer, :question_exist
   enum level: %i[easy hard]
 
-  def self.getquestion(level, category_id, number)
-    includes(:category).where(level: level, category_id: category_id).sample(number)
+  def self.getquestion(exam)
+    hard = exam.master? ? 10 : 5
+    questions = includes(:category).where(level: "hard", category_id: exam.category_id).sample(hard)
+    questions += includes(:category).where(level: "easy", category_id: exam.category_id).sample(20 - hard)
+    questions.shuffle
   end
 
   private
