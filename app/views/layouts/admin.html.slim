@@ -10,8 +10,11 @@ html
   body
     header
       = render "layouts/header"
-    main
-      .container
+    main.row
+      .col-md-2
+        = render "layouts/sidebar"
+      .col-md-9
         = render "layouts/flash_messages"
         = yield
+      .col-md-1
     = render "layouts/footer"

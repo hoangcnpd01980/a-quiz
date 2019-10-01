@@ -17,8 +17,11 @@ en:
       logout: "Logout"
       login: "Login"
       question: "Question"
+      manage: "Manager"
     footer:
       author: "A-Quiz"
+    sidebar:
+      crawler: "Crawler"
   questions:
     form:
       question: "Question"
@@ -56,4 +59,17 @@ en:
       index:
         title: "Dashboard"
         desc: "Admin dash board"
+    crawler_questions:
+      index:
+        title: "Crawler"
+        action: "Action"
+      form_import:
+        option: "Select category"
+        save: "Save"
+      crawler_question:
+        confirm: "Are you sure you want to delete?"
+      destroy:
+        success: "Question deleted!"
+      create:
+        success: "Question imported!"
   a-quiz: "A-quiz"

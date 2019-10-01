@@ -28,6 +28,7 @@ gem "jquery-ui-rails"
 gem "capybara"
 gem "webdrivers"
 gem "whenever", require: false
+gem "paranoia"
 gem "webpacker"
 gem "react-rails"
 gem "activerecord-import"
