@@ -5,4 +5,7 @@ tr.question
   td.answer
     - question.answers.each do |answer|
       div style=("color: #{answer.status == true ? 'green' : 'red'}")
-        = answer.content
+        = answer.content.titleize
+  td
+    = question.updated_at > question.created_at ? t(".edit") : t(".create")
+    = time_ago_in_words(question.updated_at)

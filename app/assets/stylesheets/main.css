@@ -163,11 +163,6 @@ footer {
   margin: 20px;
 }
 
-.fa-question, .fa-clock-o {
-  color: #f8bd32;
-  font-size: 40px !important;
-}
-
 .info-card p {
   color: white;
 }
@@ -220,4 +215,9 @@ footer {
   font-size: 25px !important;
   margin: 5px -10px;
   cursor: pointer;
+}
+
+.fa-question, .fa-clock-o {
+  color: #f8bd32;
+  font-size: 40px !important;
 }

@@ -6,4 +6,6 @@
 //= require activestorage
 //= require cocoon
 //= require jquery-ui
+//= require questions
+//= require cable
 //= require turbolinks

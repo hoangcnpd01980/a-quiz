@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   before_action :check_admin
 
   def index
-    @questions = Question.includes(:answers, :category).page(params[:page]).per(6)
+    @questions = Question.includes(:answers, :category).order(updated_at: :desc).page(params[:page]).per(6)
   end
 
   def new
@@ -16,7 +16,6 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new question_params
     if @question.save
-      @questions = Question.includes(:answers, :category).page(params[:page]).per(6)
       flash[:success] = t "messages.success.questions.create"
     else
       flash[:danger] = t "messages.failed.questions.create"

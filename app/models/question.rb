@@ -6,6 +6,8 @@ class Question < ApplicationRecord
   has_many :results
   belongs_to :user
 
+  after_create_commit :show_question
+
   accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
   validates :level, presence: true
   validates :question_content, presence: true, length: { minimum: 5, maximum: 255 }
@@ -29,27 +31,27 @@ class Question < ApplicationRecord
 
   def valid_correct
     correct = answers.select(&:status).size
-    return errors.add(:base, I18n.t("model.question.no_correct")) if correct.zero?
-    return errors.add(:base, I18n.t("model.question.no_wrong")) if correct == answers.size
+    errors.add(:base, I18n.t("model.question.no_correct")) if correct.zero?
+    errors.add(:base, I18n.t("model.question.no_wrong")) if correct == answers.size
   end
 
   def count_answer
-    return errors.add(:base, I18n.t("model.question.less_than")) if answers.size < 2
+    errors.add(:base, I18n.t("model.question.less_than")) if answers.size < 2
   end
 
   def valid_answer
-    answer = answers.collect(&:content)
-    return errors.add(:base, I18n.t("model.question.not_same")) unless answer.uniq.size == answer.size
-  end
-
-  def find_question
-    Question.find_by(question_content: question_content, category_id: category_id, level: level)
+    answer = answers.collect { |a| a.content.downcase }
+    errors.add(:base, I18n.t("model.question.not_same")) unless answer.uniq.size == answer.size
   end
 
   def question_exist
-    return if find_question.blank?
+    questions = Question.joins(:answers).where(question_content: question_content,
+      category_id: category_id, level: level,
+      answers: { content: answers.map { |answer| answer.content.downcase } })
+    errors.add(:base, I18n.t("model.question.exist")) if questions.present?
+  end
 
-    question_exist = find_question.answers.collect(&:content)
-    errors.add(:base, I18n.t("model.question.exist")) if (answers.collect(&:content) - question_exist).size.zero?
+  def show_question
+    QuestionBroadcastJob.perform_later
   end
 end
