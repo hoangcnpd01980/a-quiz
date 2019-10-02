@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
     resources :crawler_questions, only: %i(index create destroy)
+    resources :categories, except: %i(new edit)
   end
 
   namespace :api do

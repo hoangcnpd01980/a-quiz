@@ -1,3 +1,7 @@
+ul {
+  list-style-type: none;
+}
+
 #nav-admin {
   background-color: black !important;
   .nav-link {
@@ -13,4 +17,22 @@
 }
 .form-import {
   margin-top: 15px;
+}
+
+form.new_category {
+  .form-group {
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+form.edit_category {
+  .form-group {
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+
+th.action {
+  width: 150px;
 }
