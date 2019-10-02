@@ -10,77 +10,12 @@
 .container
   .categories
     .row
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-    .row.categories-row
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-    .row.categories-row style="padding-bottom: 30px;"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
-      .col-4
-        .category
-          .card
-            img.card-img-top
-            .card-body
-              h5.card-title = t ".more"
-              p.card-text = t ".level"
-              = link_to t(".see"), "#", class: "btn btn-primary btn-block"
+      - @categories.each do |category|
+        .col-4
+          .category
+            .card style="margin-top: 15px"
+              img.card-img-top
+              .card-body
+                h5.card-title = category.name
+                p.card-text = t ".level"
+                = link_to t(".see"), category_path(category), class: "btn btn-primary btn-block"
