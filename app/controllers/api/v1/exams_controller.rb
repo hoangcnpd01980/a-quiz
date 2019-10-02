@@ -7,7 +7,7 @@ module Api
       before_action :authenticate_user!
 
       def index
-        @exams = current_user.exams.map { |exam| { id: exam.id, difficulity: exam.difficulity, questions_count: exam.results.count } }
+        @exams = current_user.exams.map { |exam| { id: exam.id, difficulity: exam.difficulity, questions_count: exam.results.count, category_id: exam.category_id} }
         render json: @exams
       end
 
@@ -36,7 +36,7 @@ module Api
       end
 
       def exam_params
-        params.require(:exam).permit(:difficulity, :category_id)
+        params.require(:exam).permit(:user_id, :difficulity, :category_id)
       end
     end
   end

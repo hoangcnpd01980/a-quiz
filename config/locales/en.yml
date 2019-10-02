@@ -6,6 +6,8 @@ en:
       level: "Level: Medium"
       see: "SEE TEST"
       home: "Home"
+    show:
+      title: "Exams"
   application:
     danger: "Access denied!"
   layouts:

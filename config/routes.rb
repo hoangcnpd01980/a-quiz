@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   root "home#index"
+  get "/categories/:id", to: "home#show"
 
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
   resources :questions
   resources :exams
   mount ActionCable.server => '/cable'
+  resources :categories, only: [:show]
 end

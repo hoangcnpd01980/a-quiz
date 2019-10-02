@@ -21,10 +21,12 @@ class NewExam extends React.Component {
   handleClick(event) {
     event.preventDefault();
     var difficulity = this.refs.difficulity.value;
+    var path = window.location.pathname
+    var category_id = path.substring(path.lastIndexOf('/') + 1)
     $.ajax({
       url: "/api/v1/exams",
       type: "POST",
-      data: { exam: { difficulity: difficulity, category_id: 1 } },
+      data: { exam: { difficulity: difficulity, category_id: category_id } },
       success: (exam) => {
         this.props.handleSubmit(exam);
       }
