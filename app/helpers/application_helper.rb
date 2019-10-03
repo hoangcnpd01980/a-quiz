@@ -13,4 +13,8 @@ module ApplicationHelper
     base_title = t "a-quiz"
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
+
+  def load_notifications
+    Notification.includes(question: %i[user category]).shows(current_user.id)
+  end
 end

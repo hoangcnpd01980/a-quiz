@@ -1,0 +1,9 @@
+.dropdown style=("float: right; padding: 13px")
+  a#dropdownMenu1 aria-expanded="true" data-target="#" data-toggle="dropdown" href="#" onclick=("return false;") role="button" style=("float: left")
+    i.fa.fa-bell-o style=("font-size: 20px; float: left; color: #fff")
+    - if notifications.not_seen.size.nonzero?
+      = render "shared/counter", counter: notifications.not_seen.size
+  .dropdown-menu.dropdown-menu-left.notification aria-labelledby="dropdownMenu1" role="menu"
+    .title-header = t ".title"
+    ul#list-notification.timeline.timeline-icons.timeline-sm style="margin:10px;width:210px"
+      = render partial: 'shared/notification', collection: notifications

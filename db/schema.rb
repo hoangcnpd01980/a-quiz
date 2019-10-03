@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_051226) do
+ActiveRecord::Schema.define(version: 2019_10_02_044830) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 2019_09_29_051226) do
     t.index ["user_id"], name: "index_exams_on_user_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.integer "notification_content"
+    t.integer "notification_status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_notifications_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_notifications_on_user_id_and_question_id", unique: true
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "category_id"
     t.integer "level"
@@ -94,5 +106,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_051226) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "notifications", "questions"
+  add_foreign_key "notifications", "users"
   add_foreign_key "questions", "users"
 end

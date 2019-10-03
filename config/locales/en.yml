@@ -44,6 +44,10 @@ en:
   shared:
     error_messages:
       count_error: "The form contains %{count}."
+    notification_center:
+      title: "Notifications"
+    notification:
+      you: "You"
   messages:
     success:
       questions:
