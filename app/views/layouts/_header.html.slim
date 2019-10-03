@@ -16,3 +16,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-dark
           = link_to t(".logout"), destroy_user_session_path, method: :delete, class: "nav-link"
         - else
           = link_to t(".login"), new_user_session_path, class: "nav-link"
+  #notification-center
+    - if user_signed_in? && current_user.admin?
+      = render "shared/notification_center", notifications: load_notifications

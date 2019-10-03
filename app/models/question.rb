@@ -5,6 +5,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :results
   belongs_to :user
+  has_many :notifications, dependent: :destroy
 
   after_create_commit :show_question
 
@@ -46,8 +47,8 @@ class Question < ApplicationRecord
 
   def question_exist
     questions = Question.joins(:answers).where(question_content: question_content,
-      category_id: category_id, level: level,
-      answers: { content: answers.map { |answer| answer.content.downcase } })
+                                               category_id: category_id, level: level,
+                                               answers: { content: answers.map { |answer| answer.content.downcase } })
     errors.add(:base, I18n.t("model.question.exist")) if questions.present?
   end
 
