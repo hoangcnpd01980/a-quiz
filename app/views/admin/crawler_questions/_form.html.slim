@@ -1,0 +1,8 @@
+= form_for [:admin, crawler_question], remote: true do |f|
+  .form-group
+    = f.text_area :question_content, class: "form-control"
+  .form-group
+    = f.select :level, options_for_select(select_level, selected: f.object.level), {}, { class: "form-control" }
+  .form-group
+    = f.submit t(".save"), class: "form-control btn btn-outline-success"
+  div id="message_errors_update#{crawler_question.id}"

@@ -40,6 +40,7 @@ en:
       level: "Level"
       add: "Add question"
       time: "Time"
+      action: "Action"
     question:
       edit: "Edited "
       create: "Created "
@@ -76,12 +77,21 @@ en:
       form_import:
         option: "Select category"
         save: "Save"
+      form:
+        save: "Save"
       crawler_question:
         confirm: "Are you sure you want to delete?"
       destroy:
         success: "Question deleted!"
       create:
         success: "Question imported!"
+    crawler_answers:
+      crawler_answer:
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "Are you sure you want to delete?"
+      form:
+        save: "Save"
     categories:
       index:
         new: "NEW CATEGORY"

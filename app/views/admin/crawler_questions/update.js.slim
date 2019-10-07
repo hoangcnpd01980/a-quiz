@@ -1,0 +1,7 @@
+- if @crawler_question.errors.any?
+  |
+    $("#message_errors_update#{@crawler_question.id}").html('#{ j render "shared/error_messages", object: @crawler_question }');
+- else
+  |
+    $("#crawler_question#{@crawler_question.id}+tr").remove();
+    $("#crawler_question#{@crawler_question.id}").replaceWith('#{ j render @crawler_question }');

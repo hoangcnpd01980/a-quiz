@@ -1,0 +1,6 @@
+- if @crawler_answer.errors.any?
+  |
+    $("#message_errors_create_answer#{@crawler_answer.id}").html('#{ j render "shared/error_messages", object: @crawler_answer }');
+- else
+  |
+    $("#info#{@crawler_answer.crawler_question.id}").prepend('#{ j render @crawler_answer }');

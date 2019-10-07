@@ -8,8 +8,8 @@ h1 Here
         th scope="col" = t(".question")
         th scope="col" = t(".category")
         th scope="col" = t(".level")
-        th scope="col" = t(".answer")
         th scope="col" = t(".time")
+        th.action scope="col" = t(".action")
     tbody#question
       = render @questions
   #paginate

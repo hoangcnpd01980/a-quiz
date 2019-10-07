@@ -1,0 +1,10 @@
+= form_for [:admin, crawler_answer], remote: true do |f|
+  = f.hidden_field :crawler_question_id, value: crawler_question.id
+  .form-group
+    = f.text_area :content, class: "form-control"
+  .form-group
+    = f.check_box :status
+  .form-group
+    = f.submit t(".save"), class: "form-control btn btn-outline-success"
+  div id="message_errors_update_answer#{crawler_answer.id}"
+  div id="message_errors_create_answer#{crawler_answer.id}"
