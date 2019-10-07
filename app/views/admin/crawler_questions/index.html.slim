@@ -1,5 +1,15 @@
 - provide(:title, t(".title"))
 
+= link_to "#", class: "btn btn-primary mt-2 mb-2"
+  em.fa.fa-play = t(".crawler")
+
+#multiple-choice
+  = link_to t(".select"), "#", id: "select-multiple"
+  = link_to t(".all"), "#", id: "select-all", class: "d-none ml-3"
+  = link_to t(".cancel"), "#", id: "select-cancel", class: "d-none ml-3"
+  = link_to t(".destroy"), "#", id: "destroy-multi", class: "d-none ml-3"
+  = link_to t(".import"), "#", id: "import-multi", class: "d-none ml-3"
+
 table.table.table-striped.table-hover
   thead
     tr.text-center

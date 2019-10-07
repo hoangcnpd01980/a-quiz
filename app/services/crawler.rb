@@ -61,7 +61,7 @@ class Crawler
 
       set_correct_answer(question, answers_correct[index])
       q = CrawlerQuestion.create(question_content: question[:content])
-      q.crawler_answers.create(question[:answers])
+      CrawlerAnswer.import(question[:answers].map { |answer| answer.merge(crawler_question_id: q.id) })
     end
   end
 

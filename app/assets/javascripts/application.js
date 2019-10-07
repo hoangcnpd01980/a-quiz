@@ -7,5 +7,6 @@
 //= require cocoon
 //= require jquery-ui
 //= require questions
+//= require crawler
 //= require cable
 //= require turbolinks
