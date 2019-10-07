@@ -8,7 +8,15 @@
   = link_to t(".all"), "#", id: "select-all", class: "d-none ml-3"
   = link_to t(".cancel"), "#", id: "select-cancel", class: "d-none ml-3"
   = link_to t(".destroy"), "#", id: "destroy-multi", class: "d-none ml-3"
-  = link_to t(".import"), "#", id: "import-multi", class: "d-none ml-3"
+  = link_to t(".import"), "#", id: "import-multi", class: "d-none ml-3",
+    data: { toggle: "collapse", target: "#import-form" }
+
+#import-form.collapse.row.mt-2
+  .form-group.col-md-4
+    = select_tag :category, options_for_select(select_category),
+      { include_blank: t(".option"), id: "category-multi", class: "form-control" }
+  .form-group.col-md-2
+    = button_tag t(".save"), id: "submit-multi", class: "btn btn-outline-success"
 
 table.table.table-striped.table-hover
   thead

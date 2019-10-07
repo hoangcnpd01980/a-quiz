@@ -15,8 +15,7 @@ tr id="crawler_question#{crawler_question.id}"
     = link_to admin_crawler_question_path(crawler_question), method: :delete,
       class: "btn btn-danger", data: { confirm: t(".confirm") }
         em.fa.fa-trash
-    button.btn.btn-success[data-toggle="collapse" data-target="#import#{crawler_question.id}"]
-      em.fa.fa-arrow-circle-down
+
 tr
   td[colspan="3"]
     ul id="info#{crawler_question.id}" class="collapse list-group list-group-flush"
@@ -26,5 +25,3 @@ tr
           em.fa.fa-plus
         .collapse.col-md-6.mt-2 id="new_answer#{crawler_question.id}"
           = render "admin/crawler_answers/form", crawler_answer: CrawlerAnswer.new, crawler_question: crawler_question
-    div id="import#{crawler_question.id}" class="collapse form-import"
-      = render "form_import", crawler_question: crawler_question

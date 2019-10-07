@@ -2,7 +2,15 @@
 
 module Admin
   class CrawlersController < BaseController
-    before_action :load_crawler_questions, only: %i[destroy]
+    before_action :load_crawler_questions, only: %i[create destroy]
+
+    def create
+      if QuestionService.import(current_user, params, @crawler_questions)
+        return redirect_to admin_crawler_questions_path, success: t(".success")
+      end
+
+      redirect_to admin_crawler_questions_path, danger: t(".danger")
+    end
 
     def destroy
       ActiveRecord::Base.transaction do
