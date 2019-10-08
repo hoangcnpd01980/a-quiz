@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
     resource :crawlers, only: %i(create destroy)
-    resources :crawler_questions, only: %i(index update destroy)
+    resources :crawler_questions, only: %i(index create update destroy)
     resources :crawler_answers, only: %i(create update destroy)
     resources :categories, except: %i(new edit)
   end

@@ -5,7 +5,12 @@ module Admin
     before_action :load_crawler_question, only: %i[update destroy]
 
     def index
-      @crawler_questions = CrawlerQuestion.includes(:crawler_answers).page(params[:page]).per(10)
+      @crawler_questions = CrawlerQuestion.newest.includes(:crawler_answers).page(params[:page]).per(10)
+    end
+
+    def create
+      Crawler.new.delay(queue: :crawler).run
+      redirect_to admin_crawler_questions_path, success: t(".success")
     end
 
     def update

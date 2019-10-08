@@ -90,10 +90,13 @@ en:
         action: "Action"
         option: "Choose a category to import"
         save: "Save"
+        running: " Crawler is running"
       form:
         save: "Save"
       crawler_question:
         confirm: "Are you sure you want to delete?"
+      create:
+        success: "Crawler is running"
       destroy:
         success: "Question deleted!"
     crawler_answers:

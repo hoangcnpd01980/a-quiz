@@ -17,4 +17,8 @@ module ApplicationHelper
   def load_notifications
     Notification.includes(question: %i[user category]).shows(current_user.id)
   end
+
+  def crawler_running?
+    Delayed::Job.find_by(queue: :crawler).present?
+  end
 end

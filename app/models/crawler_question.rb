@@ -7,5 +7,7 @@ class CrawlerQuestion < ApplicationRecord
 
   validates :question_content, presence: true, uniqueness: { case_sensitive: false }
 
+  scope :newest, -> { order created_at: :DESC }
+
   enum level: %i[easy hard]
 end

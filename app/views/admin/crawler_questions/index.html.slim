@@ -1,7 +1,12 @@
 - provide(:title, t(".title"))
 
-= link_to "#", class: "btn btn-primary mt-2 mb-2"
-  em.fa.fa-play = t(".crawler")
+-if crawler_running?
+  .btn.btn-success.mt-2.mb-2
+    em.fa.fa-refresh.fa-spin
+    = t(".running")
+- else
+  = link_to admin_crawler_questions_path, method: :post, class: "btn btn-primary mt-2 mb-2"
+    em.fa.fa-play = t(".crawler")
 
 #multiple-choice
   = link_to t(".select"), "#", id: "select-multiple"
