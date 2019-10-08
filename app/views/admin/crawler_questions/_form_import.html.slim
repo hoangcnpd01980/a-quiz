@@ -1,8 +1,0 @@
-= form_tag admin_crawler_questions_path, remote: true, class: "row" do
-  = hidden_field_tag :id, crawler_question.id
-  .form-group.col-md-4
-    = select_tag :category, options_for_select(select_category),
-      { include_blank: t(".option"), class: "form-control", required: true }
-  .form-group.col-md-2
-    = submit_tag t(".save"), class: "btn btn-outline-success"
-  .col-md-6 id="message_errors#{crawler_question.id}"

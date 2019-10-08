@@ -32,6 +32,31 @@ $(document).on('turbolinks:load', function() {
     return false;
   });
 
+  $("#import-multi").click(function() {
+    if (questions_checked().length == 0) {
+      alert("No questions have been selected");
+      return false;
+    }
+  });
+
+  $("#submit-multi").click(function() {
+    var category_id = $("#category-multi").val();
+    if (category_id) {
+      if (confirm("Are you sure you want to import?")) {
+        $.ajax({
+          type: "post",
+          url: "/admin/crawlers",
+          dataType: "script",
+          data: { category: category_id, ids: questions_checked() }
+        });
+      }
+    }
+    else {
+      alert("You must choose a category!");
+    }
+    return false;
+  });
+
   $("#destroy-multi").click(function() {
     if (questions_checked().length) {
       if (confirm("Are you sure you want to delete?")) {
