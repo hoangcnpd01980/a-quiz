@@ -5,7 +5,7 @@ module Admin
     before_action :load_category, only: %i[show update destroy]
 
     def index
-      @categories = Category.includes(:questions).page(params[:page]).per(10)
+      @categories = Category.newest.includes(:questions).page(params[:page]).per(10)
       @category = Category.new
     end
 
