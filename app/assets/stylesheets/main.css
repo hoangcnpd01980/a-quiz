@@ -482,3 +482,34 @@ footer {
   margin-left: 5px;
   margin-top: 20px;
 }
+
+.steps-content {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.steps-action {
+  margin-top: 24px;
+}
+
+.steps-content {
+  padding-top: 0px !important;
+  border: 1px solid #b77716;
+}
+
+.question-content h2{
+  float: left;
+}
+
+.question-answers {
+  clear: left;
+}
+
+hr {
+  clear: left;
+}

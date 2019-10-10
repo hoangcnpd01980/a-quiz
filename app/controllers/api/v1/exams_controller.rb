@@ -23,7 +23,10 @@ module Api
       end
 
       def show
-        @questions = @exam.questions
+        @questions = @exam.questions.includes(:answers).map do |q|
+          { question_id: q.id, question_content: q.question_content,
+            answers: q.answers.map { |a| { content: a.content, status: a.status, checked: false } } }
+        end
         render json: @questions
       end
 
