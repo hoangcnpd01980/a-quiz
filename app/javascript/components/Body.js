@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import NewExam from "components/NewExam"
 import AllExams from "components/AllExams"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Show from "components/Show"
 
 class Body extends React.Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class Body extends React.Component {
   }
   handleSubmit(exam) {
     var newState = this.state.exams.concat(exam);
+    console.log(newState);
     this.setState({ exams: newState });
   }
   handleDelete(id) {
@@ -36,12 +39,20 @@ class Body extends React.Component {
       .then((data) => {this.setState({ exams: data }) });
   }
   render () {
+    const { exams } = this.state;
     return (
       <div>
-        <NewExam handleSubmit={this.handleSubmit} />
-        <AllExams exams={this.state.exams} handleDelete={this.handleDelete} />
+        <Router>
+          <NewExam handleSubmit={this.handleSubmit} />
+          <AllExams exams={this.state.exams} handleDelete={this.handleDelete} />
+            {exams.map((exam, index) => (
+              <div key={index}>
+                <Route path={`/exams/${exam.id}`} exact component={Show} />
+              </div>
+            ))}
+        </Router>
       </div>
-    );
+    )
   }
 }
 

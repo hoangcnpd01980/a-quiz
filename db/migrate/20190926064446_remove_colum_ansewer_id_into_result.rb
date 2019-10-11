@@ -1,7 +1,7 @@
 class RemoveColumAnsewerIdIntoResult < ActiveRecord::Migration[5.2]
   def self.up
     remove_column :results, :answer_id
-    add_column :results, :answer_choice, :string
+    add_column :results, :answer_choice, :boolean
   end
 
   def self.down
