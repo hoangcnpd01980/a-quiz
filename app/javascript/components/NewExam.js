@@ -52,4 +52,4 @@ class NewExam extends React.Component {
   }
 }
 
-export default NewExam
+export default NewExam;

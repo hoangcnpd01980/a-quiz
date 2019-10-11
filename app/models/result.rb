@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Result < ApplicationRecord
-  belongs_to :answer, optional: true
   belongs_to :exam
-  belongs_to :question
+  belongs_to :user
 
-  validates :question_id, uniqueness: true
+  serialize :answers, JSON
 end

@@ -4,6 +4,12 @@ import { BrowserRouter as Router, Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
 class AllExams extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: false,
+    }
+  }
   handleDelete(id) {
     var result = confirm("Are you sure?");
     if (result) {
@@ -50,7 +56,21 @@ class AllExams extends React.Component {
                 <p>Take this .NET test especially designed for .NET developers new to .NET Core 2.0. Topics: Entity Framework Core, ASP.NET Core, .NET Core Command-Line Interface (CLI) Tools, Kestrel, API, etc.</p>
               </div>
               <div className="action text-center">
-                <a href={`/exams/${exam.id}`}><button className="btn btn-click">TAKE THE TEST</button></a>
+                {
+                  (() => {
+                    if (this.state.test == false) {
+                      if (exam.results[1].answer_choice === null) {
+                        return (
+                          <Link key={index} to={`/exams/${exam.id}`}><button className="btn btn-click" onClick={this.props.countDown}>TAKE THE TEST</button></Link>
+                        )
+                      } else {
+                        return (
+                          <Link key={index} to={`/exams/${exam.id}`}><button className="btn btn-click">DONE TEST</button></Link>
+                        )
+                      }
+                    }
+                  })()
+                }
               </div>
             </div>
         </div>

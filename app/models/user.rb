@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :exams
   has_many :questions, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :results
 
   enum role: %i[member admin]
 end

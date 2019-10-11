@@ -73,7 +73,7 @@ class Question < ApplicationRecord
 
   def check_to_create_version
     return if skip_callback
-    raise StandardError if !changed? && !answers.any? { |e| e.new_record? || e.marked_for_destruction? || e.changed? }
+    raise StandardError if !changed? && answers.none? { |e| e.new_record? || e.marked_for_destruction? || e.changed? }
     return if Question.where(id: id, category_id: category_id, level: level, question_content: question_content).blank?
 
     version = paper_trail.record_update(force: true, in_after_callback: false, is_touch: false)

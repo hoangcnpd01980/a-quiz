@@ -514,6 +514,7 @@ hr {
   clear: left;
 }
 
+
 #qtext {
   font-size: 18px;
   margin-bottom: 40px;
@@ -548,4 +549,23 @@ hr {
 
 .item-event, .item-user, .item-time {
   text-align: center !important;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-timer {
+  text-align: center;
+  font-family: monospace;
+  font-size: 55px;
+  margin: auto;
+  line-height: 3.3;
+  width: 242px;
+  height: 215px;
+  border: 1px solid;
+  border-radius: 100%;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
